@@ -1,20 +1,20 @@
-name: My first workflow
+name: Avengers Assemble
+
 on: push
-jobs:
-    Mihawkjob:
-        runs-on: ubuntu-latest
-        steps:
-        
-        - name: Checkout the github repository
-          uses: actions/checkout@v6
 
-        - name: Welcome message
-          run:  echo "Welcome to your first github workflow"
+jobs: 
+  doomsdayscenario:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v6
 
+      - name: welcome message
+        run:  echo "Welcome to your first github actions workoutplan"
 
-        - name: list data
-          run: ls
-
-        - name: read data
-          run: cat README.md
+      - name: list the files
+        run:  ls
+      
+      - name: show the readme file
+        run:  cat README.md
 
