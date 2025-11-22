@@ -1,0 +1,9 @@
+name: DC stupids
+on: push
+
+jobs:
+    dcisbullshit:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: welcome message
+              run: echo "Marvel is far better than DC"
