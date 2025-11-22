@@ -3,13 +3,32 @@ name: Avengers Assemble
 on: push
 
 jobs: 
-  doomsdayscenario:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout the code
-        uses: actions/checkout@v6
+     - name: checkout 
+       uses: actions/checkout@v6
+      
+     - name: install
+       run: sudo apt-get update && apt-get install -y cowsay
 
-      - name: Execute a shell script
-        run: |
-             chmod +x shell.sh
-             sh shell.sh
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run the cowsay
+        run:  cowsay -f horse "Run for cover, I am a Horse ... neigh" >> horse.txt
+
+      - name: sleep for 3 seconds
+        run: sleep 3
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: grep for the file
+        run: grep -i "horse" horse.txt
+
+      - name: Read file
+        run: cat horse.txt
+
+      - name : Deploy
+        run: echo Deploying ......
