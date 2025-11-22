@@ -9,12 +9,18 @@ jobs:
       - name: checkout the code
         uses: actions/checkout@v6
 
-      - name: welcome message
-        run:  echo "Welcome to your first github actions workoutplan"
+      - name: List and read files
+        run: | 
+          echo "Welcome to your first github actions workoutplan"
+          ls -ltra
+          cat README.md
 
-      - name: list the files
-        run:  ls
+      - name: Generate ASCII Artwork
+        run: cowsay -f dragon "Run for cover, I am a DRAGON......RAWR" >> dragont.txt
+
+      # - name: list the files
+      #   run:  ls
       
-      - name: show the readme file
-        run:  cat README.md
+      # - name: show the readme file
+      #   run:  cat README.md
 
