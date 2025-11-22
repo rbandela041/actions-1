@@ -8,13 +8,14 @@ jobs:
     steps:
      - name: checkout 
        uses: actions/checkout@v6
-      
-     - name: install
-       run: sudo apt-get update && apt-get install -y cowsay
 
   deploy:
     runs-on: ubuntu-latest
     steps:
+
+      - name: install
+        run: sudo apt-get update && apt-get install -y cowsay
+        
       - name: run the cowsay
         run:  cowsay -f horse "Run for cover, I am a Horse ... neigh" >> horse.txt
 
