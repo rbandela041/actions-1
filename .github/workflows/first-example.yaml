@@ -4,6 +4,9 @@ jobs:
     Mihawkjob:
         runs-on: ubuntu-latest
         steps:
+        
+        - name: Checkout the github repository
+          uses: actions/checkout@v6
 
         - name: Welcome message
           run:  echo "Welcome to your first github workflow"
@@ -13,5 +16,5 @@ jobs:
           run: ls
 
         - name: read data
-          run: cat ../README.md
+          run: cat README.md
 
