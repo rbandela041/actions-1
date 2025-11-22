@@ -1,0 +1,9 @@
+#!/bin/bash
+  
+echo "Welcome to your first github actions workoutplan"
+ls -ltra
+cat README.md
+sudo apt-get update && sudo apt-get install -y cowsay
+cowsay -f dragon "Run for cover, I am a DRAGON......RAWR" >> dragon.txt
+cat dragon.txt
+echo " Whos the man"

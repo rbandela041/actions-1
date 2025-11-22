@@ -9,17 +9,5 @@ jobs:
       - name: checkout the code
         uses: actions/checkout@v6
 
-      - name: List and read files
-        run: | 
-          echo "Welcome to your first github actions workoutplan"
-          ls -ltra
-          cat README.md
-
-      - name: Generate ASCII Artwork
-        run: |
-          sudo apt-get update && sudo apt-get install -y cowsay
-          cowsay -f dragon "Run for cover, I am a DRAGON......RAWR" >> dragon.txt
-          cat dragon.txt
-
-      - name: display options
-        run: echo " Whos the man"
+      - name: Execute a shell script
+        run: ../shell.sh
