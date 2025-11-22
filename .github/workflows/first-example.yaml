@@ -10,4 +10,6 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Execute a shell script
-        run: ./shell.sh
+        run: |
+             chmod +x ./shell.sh
+             ./shell.sh
