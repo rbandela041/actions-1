@@ -9,11 +9,9 @@ jobs:
     strategy:
         fail-fast: false
         matrix:
-          os: [ubuntu-latest, ubuntu-22.04.5, windows-latest]
+          os: [ubuntu-latest, ubuntu-22.0, windows-latest]
           images: [hello-world, alpine]
           exclude:
-            - os: windows-latest
-              images: nginx
             - os: windows-latest
               images: alpine
     runs-on: ${{ matrix.os }}
