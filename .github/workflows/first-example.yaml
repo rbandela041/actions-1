@@ -14,8 +14,8 @@ jobs:
     steps:
 
       - name: install
-        run: sudo apt-get update && apt-get install -y cowsay
-        
+        run: sudo apt-get update && sudo apt-get install -y cowsay
+
       - name: run the cowsay
         run:  cowsay -f horse "Run for cover, I am a Horse ... neigh" >> horse.txt
 
@@ -23,6 +23,7 @@ jobs:
         run: sleep 3
 
   test:
+    needs: deploy
     runs-on: ubuntu-latest
     steps:
       - name: grep for the file
