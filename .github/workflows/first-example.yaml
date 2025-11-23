@@ -17,7 +17,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y cowsay
 
       - name: run the cowsay
-        run:  cowsay -f dragon "Run for cover, I am a Horse ... neigh" >> dragon.txt
+        run:  cowsay -f dragon "Run for cover, I am a dragon ... rawr" >> dragon.txt
 
       - name: upload dragon file
         uses: actions/upload-artifact@v5
