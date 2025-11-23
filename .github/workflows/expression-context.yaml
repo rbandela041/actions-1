@@ -1,0 +1,25 @@
+name: Using expressions and context information
+on: workflow_dispatch
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+
+    env:
+      CONTAINER_REGISTRY: docker.io
+      IMAGE_NAME: nginx-github
+
+    steps:
+      - name: Docker build login and publish
+        run: |
+          echo docker build -t $CONTAINER_REGISTRY/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest
+          echo docker login --username=${{ vars.DOCKER_USERNAME }} --password=${{ secrets.DOCKER_PASSWORD }}
+          echo docker push $CONTAINER_REGISTRY/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest
+
+  deploy:
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run container
+        run: |
+           echo docker run -d -p 8080:80 $CONTAINER_REGISTRY/${{ vars.DOCKER_USERNAME }}/$IMAGE_NAME:latest
