@@ -45,3 +45,15 @@ jobs:
 
       - name : Deploy
         run: echo Deploying ......
+
+  job4:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: download dragon file
+        uses: actions/download-artifact@v6
+        with: 
+          name: dragon-artifact
+
+      - name: add content
+        run: grep -i "Run" dragon.txt
