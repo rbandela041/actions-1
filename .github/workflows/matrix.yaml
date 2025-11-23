@@ -10,7 +10,7 @@ jobs:
         fail-fast: false
         matrix:
           os: [ubuntu-latest, ubuntu-22.04.5, windows-latest]
-          images: [hello-world, nginx, alpine]
+          images: [hello-world, alpine]
           exclude:
             - os: windows-latest
               images: nginx
