@@ -19,6 +19,12 @@ jobs:
       - name: run the cowsay
         run:  cowsay -f dragon "Run for cover, I am a Horse ... neigh" >> dragon.txt
 
+      - name: upload dragon file
+        uses: actions/upload-artifact@v5
+        with: 
+          name: dragon-artifact
+          path: dragon.txt
+
       - name: sleep for 3 seconds
         run: sleep 3
 
@@ -26,11 +32,16 @@ jobs:
     needs: deploy
     runs-on: ubuntu-latest
     steps:
+      - name: download artifact
+        uses: actions/download-artifact@v6
+        with:
+         name: dragon-artifact
+
       - name: grep for the file
-        run: grep -i "horse" horse.txt
+        run: grep -i "dragon" dragon.txt
 
       - name: Read file
-        run: cat horse.txt
+        run: cat dragon.txt
 
       - name : Deploy
         run: echo Deploying ......
