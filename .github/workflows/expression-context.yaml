@@ -1,5 +1,5 @@
 name: Using expressions and context information
-on: push
+on: workflow_dispatch
 
 jobs:
   docker:
